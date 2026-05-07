@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Schwerpunkte digitale Bildung – SJ 26/27</title>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --brand: #1B73CC;
+    --brand-bg: #E8F1FB;
+    --brand-text: #0F4A8A;
+    --bg: #F7F6F3;
+    --surface: #FFFFFF;
+    --border: rgba(0,0,0,0.08);
+    --border-strong: rgba(0,0,0,0.14);
+    --text-primary: #1A1A18;
+    --text-secondary: #5A5A54;
+    --text-tertiary: #9A9A90;
+    --purple-bg: #EEEDFE;
+    --purple-text: #3C3489;
+    --coral-bg: #FAECE7;
+    --coral-text: #712B13;
+  }
+
+  body {
+    font-family: Arial, sans-serif;
+    background: var(--bg);
+    color: var(--text-primary);
+    padding: 0;
+    margin: 0;
+  }
+
+  .kopfzeile {
+    background: var(--brand);
+    color: #fff;
+    padding: 14px 40px;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: .03em;
+  }
+
+  .page {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 40px 24px 56px;
+  }
+
+  .header-meta {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: .08em;
+    text-transform: uppercase;
+    color: var(--text-tertiary);
+    margin-bottom: 6px;
+  }
+
+  .header-title {
+    font-size: 26px;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: 32px;
+    line-height: 1.2;
+  }
+
+  .header-lead {
+    font-size: 13px;
+    color: var(--text-secondary);
+    line-height: 1.7;
+    margin-bottom: 10px;
+    max-width: 620px;
+  }
+
+  .header-note {
+    font-size: 12px;
+    color: var(--text-tertiary);
+    line-height: 1.6;
+    margin-bottom: 32px;
+    padding: 10px 14px;
+    border-left: 3px solid var(--brand);
+    background: var(--brand-bg);
+    border-radius: 0 4px 4px 0;
+  }
+
+  .sp {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    margin-bottom: 14px;
+    overflow: hidden;
+    border-left: 4px solid var(--accent);
+    transition: box-shadow 0.2s;
+  }
+
+  .sp:hover { box-shadow: 0 4px 18px rgba(0,0,0,0.07); }
+
+  .sp-1 { --accent: #1B73CC; }
+  .sp-2 { --accent: #1B73CC; }
+  .sp-3 { --accent: #1B73CC; }
+
+  .sp-top {
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+    padding: 16px 20px 12px;
+  }
+
+  .sp-num {
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+    font-weight: 700;
+    flex-shrink: 0;
+    margin-top: 1px;
+  }
+
+  .n1 { background: var(--brand-bg); color: var(--brand); }
+  .n2 { background: var(--brand-bg); color: var(--brand); }
+  .n3 { background: var(--brand-bg); color: var(--brand); }
+
+  .sp-head { flex: 1; }
+
+  .sp-title {
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: 2px;
+  }
+
+  .sp-subtitle {
+    font-size: 11px;
+    color: var(--text-tertiary);
+  }
+
+  .sp-divider {
+    border: none;
+    border-top: 1px solid var(--border);
+    margin: 0;
+  }
+
+  .sp-body {
+    padding: 14px 20px 18px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+  }
+
+  .sp-col-label {
+    font-size: 10px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: .07em;
+    color: var(--text-tertiary);
+    margin-bottom: 6px;
+  }
+
+  .sp-text {
+    font-size: 12px;
+    color: var(--text-secondary);
+    line-height: 1.65;
+  }
+
+  .sp-list { list-style: none; }
+
+  .sp-list li {
+    font-size: 12px;
+    color: var(--text-secondary);
+    line-height: 1.65;
+    padding-left: 14px;
+    position: relative;
+  }
+
+  .sp-list li::before {
+    content: "–";
+    position: absolute;
+    left: 0;
+    color: var(--text-tertiary);
+  }
+
+  .entscheid {
+    background: var(--brand-bg);
+    border: 1px solid rgba(27,115,204,0.2);
+    border-radius: 12px;
+    padding: 16px 20px;
+    margin-top: 20px;
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+  }
+
+  .entscheid-icon {
+    font-size: 20px;
+    color: var(--brand);
+    flex-shrink: 0;
+    margin-top: 0px;
+  }
+
+  .entscheid-label {
+    font-size: 10px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: .07em;
+    color: var(--brand);
+    margin-bottom: 5px;
+  }
+
+  .entscheid-text {
+    font-size: 12px;
+    color: var(--brand-text);
+    line-height: 1.65;
+  }
+
+  [contenteditable]:hover { outline: 1px dashed rgba(27,115,204,0.4); border-radius: 2px; cursor: text; }
+  [contenteditable]:focus { outline: 2px solid #1B73CC; border-radius: 2px; background: #f0f7ff; }
+
+  @media print {
+    .edit-hint { display: none; }
+  }
+</style>
+</head>
+<body>
+
+<div class="kopfzeile" contenteditable="true">Leitung Digitalität &nbsp;·&nbsp; Sek Hagen/Watt &nbsp;·&nbsp; Schuljahr 26/27</div>
+
+<div class="page">
+
+  <h1 class="header-title" contenteditable="true">PICTS-SCHWERPUNKTE</h1>
+
+  <div class="sp sp-1">
+    <div class="sp-top">
+      <div class="sp-num n1">1</div>
+      <div class="sp-head">
+        <p class="sp-title" contenteditable="true">Digitalität als gemeinsame Aufgabe verankern</p>
+        <p class="sp-subtitle" contenteditable="true">Entwicklungsphase: Schulkultur</p>
+      </div>
+    </div>
+    <hr class="sp-divider">
+    <div class="sp-body">
+      <div>
+        <p class="sp-col-label">Warum jetzt</p>
+        <p class="sp-text" contenteditable="true">Bisher tragen MI-Lehrpersonen die digitale Bildung allein. Damit bleiben Wirkung und Nachhaltigkeit begrenzt. Für eine echte Verankerung braucht es alle Lehrpersonen – besonders die Klassenlehrpersonen.</p>
+      </div>
+      <div>
+        <p class="sp-col-label">Massnahmen</p>
+        <ul class="sp-list" contenteditable="true">
+          <li>Beratung, Schulung für einzelne LP, Unterrichtsteams, Jahrgangsteams, Fachteams, Kollegium</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="sp sp-2">
+    <div class="sp-top">
+      <div class="sp-num n2">2</div>
+      <div class="sp-head">
+        <p class="sp-title" contenteditable="true">Digitale Mindeststandards definieren</p>
+        <p class="sp-subtitle" contenteditable="true">Entwicklungsphase: Chancengleichheit</p>
+      </div>
+    </div>
+    <hr class="sp-divider">
+    <div class="sp-body">
+      <div>
+        <p class="sp-col-label">Warum jetzt</p>
+        <p class="sp-text" contenteditable="true">Gymi und Berufsschulen setzen digitale Grundkompetenzen voraus. Ohne klare Standards verlassen SuS die Sek mit sehr unterschiedlichem Niveau – ein Gerechtigkeitsproblem.</p>
+      </div>
+      <div>
+        <p class="sp-col-label">Standards (nicht abschliessend)</p>
+        <ul class="sp-list" contenteditable="true">
+          <li>Digitaler Unterricht</li>
+          <li>Digitale Prüfungen</li>
+          <li>KI</li>
+          <li>Kreatives Gestalten</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="sp sp-3">
+    <div class="sp-top">
+      <div class="sp-num n3">3</div>
+      <div class="sp-head">
+        <p class="sp-title" contenteditable="true">Makerspace aufbauen</p>
+        <p class="sp-subtitle" contenteditable="true">Entwicklungsphase: Handlungsorientiertes Lernen</p>
+      </div>
+    </div>
+    <hr class="sp-divider">
+    <div class="sp-body">
+      <div>
+        <p class="sp-col-label">Warum jetzt</p>
+        <p class="sp-text" contenteditable="true">Materialien wie 3D-Drucker, Lasercutter u.v.m. sind vorhanden, der Raum ist gesichert. Ein gemeinsam erarbeitetes Konzept schafft die Grundlage für einen nachhaltigen Betrieb.</p>
+      </div>
+      <div>
+        <p class="sp-col-label">Planung</p>
+        <ul class="sp-list" contenteditable="true">
+          <li>Konzepterarbeitung: PICTS, Werklehrperson, Leitung Digitalität</li>
+          <li>Pilotbetrieb 1: 2. Halbjahr SJ 26/27 durch PICTS und Werklehrperson</li>
+          <li>SJ 27/28: schrittweise Öffnung für weitere Klassen und LP</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+</div>
+</body>
+</html>
